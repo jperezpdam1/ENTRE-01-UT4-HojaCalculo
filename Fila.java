@@ -1,11 +1,10 @@
-
 /**
  *  Representa a una fila de la hoja de cálculo
  *  Toda fila tiene un identificador y en ella
  *  se anotan la fecha, los ingresos y los gastos correspondientes a un
  *  apunte  contable  de una empresa
  * 
- * @author - 
+ * @author Jon Pérez 
  *  
  */
 public class Fila
@@ -19,18 +18,21 @@ public class Fila
      * Constructor  
      */
     public Fila(String id)    {
-         
-
+        this.id = id;
+        ingresos = 0;
+        gastos = 0;
+        this.fecha = new Fecha(1, 1, 2020);
     }
 
     /**
      * Constructor  
      */
     public Fila(String id, Fecha fecha, double ingresos, double gastos)    {
-        
-
+        this.fecha = fecha;
+        this.ingresos = ingresos;
+        this.gastos = gastos;
     }
-    
+
     /**
      * accesor para el id de la fila
      */
@@ -38,7 +40,6 @@ public class Fila
         return this.id;
 
     }
-
 
     /**
      * accesor para la fecha
@@ -71,15 +72,15 @@ public class Fila
         return this.ingresos - this.gastos;
 
     }
-    
+
     /**
      * obtiene una copia idéntica a la fila actual.
      * La fecha que incluye la fila duplicada también es una copia
      * 
      */
     public Fila duplicar() {
-       return null;
-
+        Fila duplicar = new Fila(this.id, this.fecha, this.ingresos, this.gastos);
+        return duplicar;
     }
 
     /**
@@ -87,10 +88,9 @@ public class Fila
      * (leer enunciado)
      */
     public String toString() {
-      return null;
-
+        String DatosFila = String.format("Fila" + id + "%8s", fecha + "%15s", ingresos + "%15s", gastos + "%15s", getBeneficio() + "%15s");
+        return DatosFila;
     }
 
-     
 
 }
